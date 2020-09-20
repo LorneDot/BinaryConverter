@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BinaryConverter {
+
     public static Integer exp(int z, int x){
 
         int output = z;
@@ -67,22 +68,22 @@ public class BinaryConverter {
 
     }
 
-    public static Integer convertToBaseTen(Integer binary){
+    public static Integer convertToDecimal(Integer binary){
 
         List<String> Nums = new ArrayList<String>(Arrays.asList(binary.toString().split("")));
         Integer numLength = Nums.size()-1;
-        Integer baseTen = 0;
+        Integer decimal = 0;
 
         int x = 0;
 
         for (String str: Nums){
             if (str.equals("1")) {
                 int convertedInt = exp(2, numLength-x);
-                baseTen = baseTen + convertedInt;
+                decimal = decimal + convertedInt;
             }
             x++;
         }
-        return baseTen;
+        return decimal;
     }
 
     public static void main(String[] args) {
@@ -96,7 +97,7 @@ public class BinaryConverter {
         int binary = convertToBinary(userInput);
         System.out.println("Converted to binary: " + binary);
 
-        int baseTen = convertToBaseTen(binary);
+        int baseTen = convertToDecimal(binary);
 
         System.out.println("Converted back to base ten: " + baseTen );
 
