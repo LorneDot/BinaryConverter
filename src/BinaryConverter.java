@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class BinaryConverter {
 
@@ -17,6 +16,25 @@ public class BinaryConverter {
             }
         }
         return output;
+    }
+
+    public static int[] fibonacci(int limit){
+
+        int kMinusTwo;
+        int kMinusOne = 0;
+        int k = 1;
+        int[] sequence = new int[limit];
+
+        for (int i = 0; i < limit; i++){
+
+            sequence[i] = k;
+            kMinusTwo = kMinusOne;
+            kMinusOne = k;
+            k = kMinusOne + kMinusTwo;
+
+        }
+
+        return sequence;
     }
 
     public static Integer findLargestSquare(Integer num){
@@ -88,18 +106,9 @@ public class BinaryConverter {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int userInput = Integer.parseInt(scanner.next());
-
-        System.out.println("User input: " +  userInput);
-
-        int binary = convertToBinary(userInput);
-        System.out.println("Converted to binary: " + binary);
-
-        int baseTen = convertToDecimal(binary);
-
-        System.out.println("Converted back to base ten: " + baseTen );
+        for (int i : fibonacci(12)){
+            System.out.println(convertToBinary(i));
+        }
 
     }
 
